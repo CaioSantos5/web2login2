@@ -1,0 +1,21 @@
+<%- include("topo") %>
+<table><tr><th>Id</th><th>Código</th><th>Nome</th><th>Preço</th><th>Marca</th><th>Alterar</th></tr>
+    <%
+    for (var i = 0; i < produtos.length; i++) {
+    %>
+        <tr>
+        <td><%= produtos[i].id %></td>
+        <td><%= produtos[i].codigo %></td>
+        <td><%= produtos[i].nome %></td>
+        <td><%= produtos[i].preco %></td>
+        <td><%= produtos[i].marca %></td>
+        <td> <a href='/alteraProduto?id=<%=produtos[i].id %>'>Alterar</a></td>
+
+        <td><a href='/excluiProduto?id=<%= produtos[i].id %>' onclick="return confirm('Deseja realmente excluir?')">Excluir</a></td>
+    </tr>
+      <%
+        }
+      %>
+</table>
+
+<%- include("rodape") %>
